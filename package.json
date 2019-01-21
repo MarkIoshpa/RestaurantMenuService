@@ -1,0 +1,15 @@
+{
+  "name": "restaurant_menu_service",
+  "version": "1.0.0",
+  "description": "Service to manage restaurant's menus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mark Ioshpa",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.5"
+  }
+}
