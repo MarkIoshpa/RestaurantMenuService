@@ -26,6 +26,13 @@ app.post('/addRestaurant', restCtl.addRestaurant)
 
 /*              */
 
+/* API documentation */
+app.get('/', (req,res) => {res.redirect('https://documenter.getpostman.com/view/5696798/RzteUYYn')})
+
+/* global route handler */
+app.all('*', (req, res) => {
+    res.status(404).send('Route does not exist')
+})
 
 /* Start server */
 app.listen(port, () => console.log(`Server listening on port ${port}`))
