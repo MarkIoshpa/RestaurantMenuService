@@ -123,7 +123,7 @@ exports.editDish = (req, res) => {
     
     // prepare query document
     const doc = {
-        $set: { dishes : {
+        $set: { 'dishes.$' : {
             name: dishData.name,
             category: dishData.category,
             description: dishData.description,
@@ -134,7 +134,7 @@ exports.editDish = (req, res) => {
     }
 
     // query
-    Restaurant.updateOne({'id': {$eq: req.body.id}, dishes: { $elemMatch: { 'dishes._id': {$eq: ObjectId(req.body.dish_id)}} } } , doc, 
+    Restaurant.updateOne({'id': {$eq: req.body.id}, 'dishes._id': {$eq: ObjectId(req.body.dish_id)}}, doc, 
         (err, result) => {
             if(err) res.status(500).json(err.message)
             res.json(result)
