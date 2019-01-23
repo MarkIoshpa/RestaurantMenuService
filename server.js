@@ -20,8 +20,8 @@ app.use((req, res, next) => {
 app.get('/getDishes/:name', restCtl.getDishes)
 app.get('/getSpecialDishes/:name', restCtl.getSpecialDishes)
 app.post('/addDish', restCtl.addDish)
-app.post('/editDish', restCtl.editDish)
-app.post('/deleteDish', restCtl.deleteDish)
+app.put('/editDish', restCtl.editDish)
+app.delete('/deleteDish', restCtl.deleteDish)
 app.post('/addRestaurant', restCtl.addRestaurant)
 
 /*              */
