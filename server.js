@@ -10,8 +10,11 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT");
-    res.header("Access-Control-Allow-Headers", "Origin,X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Headers", "Origin,X-Requested-With, Content-Type, Accept, Authorization");
+    if(req.method === 'OPTIONS'){
+        res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+        return res.status(200).json({});
+    }
     res.set("Content-Type", "application/json");
     next();
 })
